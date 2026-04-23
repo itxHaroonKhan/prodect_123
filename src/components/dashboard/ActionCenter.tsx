@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useVault, VaultItem } from '@/lib/vault-store';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,11 @@ export function ActionCenter() {
   const { items, moveItem, updateItemPlan } = useVault();
   const { toast } = useToast();
   const [isThinking, setIsThinking] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleGeneratePlan = async (item: VaultItem) => {
     setIsThinking(item.id);
@@ -65,7 +70,7 @@ export function ActionCenter() {
               </div>
               <div className="ml-auto flex items-center gap-2 text-[10px] text-muted-foreground font-medium">
                 <Clock className="h-3 w-3" />
-                {new Date(item.receivedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                {mounted ? new Date(item.receivedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--:--'}
               </div>
             </div>
             

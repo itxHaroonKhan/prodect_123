@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useVault } from "@/lib/vault-store";
@@ -34,6 +35,12 @@ const chartConfig = {
 
 export function Overview() {
   const { revenue, items } = useVault();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const mtdPercent = (revenue.mtd / revenue.target) * 100;
   const growth = ((revenue.week - revenue.prevWeek) / revenue.prevWeek) * 100;
 
@@ -181,7 +188,9 @@ export function Overview() {
                   <div className="h-1.5 w-1.5 rounded-full bg-primary mt-1.5 shadow-[0_0_8px_hsl(var(--primary))]" />
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-medium truncate">{item.title}</p>
-                    <p className="text-[10px] text-muted-foreground">{new Date(item.receivedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                    <p className="text-[10px] text-muted-foreground">
+                      {mounted ? new Date(item.receivedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--:--'}
+                    </p>
                   </div>
                 </div>
               ))}

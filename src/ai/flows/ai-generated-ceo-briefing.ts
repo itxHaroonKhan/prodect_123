@@ -67,7 +67,7 @@ You MUST strictly adhere to the "CEO Briefing Template" structure below, filling
         *   Carefully read the "Subscription Audit Rules" section within the provided 'Business_Goals.md' content.
         *   Analyze the 'bankTransactions' to identify recurring expenses that resemble subscriptions.
         *   Apply the audit rules (e.g., "No login in 30 days", "Cost increased > 20%", "Duplicate functionality") to these identified subscriptions.
-        *   For each flagged subscription, generate a clear, actionable suggestion, formatted as shown in the template (e.g., "- **Notion**: No team activity in 45 days. Cost: \$15/month.
+        *   For each flagged subscription, generate a clear, actionable suggestion, formatted as shown in the template (e.g., "- **Notion**: No team activity in 45 days. Cost: \u002415/month.
   - [ACTION] Cancel subscription?").
     *   **Upcoming Deadlines**:
         *   Extract all upcoming project deadlines from the "Active Projects" section of the 'Business_Goals.md' content.
@@ -89,8 +89,8 @@ period: 2025-12-30 to 2026-01-05
 Strong week with revenue ahead of target. One bottleneck identified.
 
 ## Revenue
-- **This Week**: \$2,450
-- **MTD**: \$4,500 (45% of \$10,000 target)
+- **This Week**: \u00242,450
+- **MTD**: \u00244,500 (45% of \u002410,000 target)
 - **Trend**: On track
 
 ## Completed Tasks
@@ -100,7 +100,7 @@ Strong week with revenue ahead of target. One bottleneck identified.
 
 ## Proactive Suggestions
 ### Cost Optimization
-- **Notion**: No team activity in 45 days. Cost: \$15/month.
+- **Notion**: No team activity in 45 days. Cost: \u002415/month.
   - [ACTION] Cancel subscription? Move to /Pending_Approval
 
 ### Upcoming Deadlines
@@ -120,13 +120,13 @@ Strong week with revenue ahead of target. One bottleneck identified.
 \`\`\`
 
 ### Weekly Revenue:
-\${{{weeklyRevenue}}}
+\u0024{{{weeklyRevenue}}}
 
 ### Monthly Target:
-\${{{monthlyTarget}}}
+\u0024{{{monthlyTarget}}}
 
 ### Current MTD Revenue:
-\${{{monthlyCurrent}}}
+\u0024{{{monthlyCurrent}}}
 
 ### Completed Tasks:
 \`\`\`json

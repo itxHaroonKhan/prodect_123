@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from 'react';
 import { useVault } from '@/lib/vault-store';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,11 @@ import { useToast } from '@/hooks/use-toast';
 export function ApprovalHub() {
   const { items, moveItem } = useVault();
   const { toast } = useToast();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   const pendingItems = items.filter(i => i.status === 'pending_approval');
 
@@ -56,7 +62,9 @@ export function ApprovalHub() {
                       <h3 className="text-lg font-headline font-bold">{item.title}</h3>
                       <div className="flex items-center gap-2 mt-1">
                         <Badge variant="secondary" className="text-[9px] uppercase tracking-tighter">Requires Authorization</Badge>
-                        <span className="text-[10px] text-muted-foreground">Requested {new Date(item.receivedAt).toLocaleTimeString()}</span>
+                        <span className="text-[10px] text-muted-foreground">
+                          Requested {mounted ? new Date(item.receivedAt).toLocaleTimeString() : '--:--'}
+                        </span>
                       </div>
                     </div>
                   </div>

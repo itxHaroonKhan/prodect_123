@@ -1,7 +1,6 @@
-
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,7 +12,12 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 export function CEOBriefing() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [briefing, setBriefing] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
   const { toast } = useToast();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleGenerate = async () => {
     setIsGenerating(true);
@@ -90,7 +94,9 @@ export function CEOBriefing() {
           <CardHeader className="bg-white/5 border-b border-white/5">
             <div className="flex items-center justify-between">
               <Badge className="bg-accent text-accent-foreground">PROACTIVE BRIEFING</Badge>
-              <span className="text-xs text-muted-foreground">Generated {new Date().toLocaleDateString()}</span>
+              <span className="text-xs text-muted-foreground">
+                Generated {mounted ? new Date().toLocaleDateString() : '...'}
+              </span>
             </div>
           </CardHeader>
           <CardContent className="p-0">

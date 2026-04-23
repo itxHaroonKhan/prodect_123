@@ -56,7 +56,7 @@ status: pending
 
 ## Steps
 - [ ] [Step 1 description, e.g., "Identify client: Client A (client_a@email.com)"]
-- [ ] [Step 2 description, e.g., "Calculate amount: \$1,500 (from /Accounting/Rates.md)"]
+- [ ] [Step 2 description, e.g., "Calculate amount: \u00241,500 (from /Accounting/Rates.md)"]
 - [ ] [Step 3 description, e.g., "Generate invoice PDF"]
 - [ ] [Step 4 description, e.g., "Send via email (REQUIRES APPROVAL)"]
 - [ ] [Step 5 description, e.g., "Log transaction"]
